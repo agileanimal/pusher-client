@@ -80,8 +80,8 @@ module PusherClient
       end
     end
 
-    def subscribe(channel_name, user_id = nil)
-      @user_data = {:user_id => user_id}.to_json unless user_id.nil?
+    def subscribe(channel_name, user_id = nil, options={})
+      @user_data = {:user_id => user_id, :user_info => options}.to_json unless user_id.nil?
       
       channel = @channels << channel_name
       if @connected
